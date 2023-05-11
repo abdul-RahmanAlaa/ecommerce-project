@@ -1,3 +1,3 @@
 export class Store {
-  constructor(storeName: string, branches: string[], logo: string) {}
+  constructor(public storeName: string,public branches: string[],public logo: string) {}
 }
