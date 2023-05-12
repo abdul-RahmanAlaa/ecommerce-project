@@ -1,10 +1,81 @@
 * {
   background-color: rgb(18, 18, 18);
-  color: #ccc;
+  color: #fff;
   font-size: 0.875rem;
 }
-.image {
-  width: 200px;
-  background-color: aliceblue;
-  border-radius: 20px;
+
+.name {
+  font-weight: bold;
+  &:hover {
+    color: aqua;
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.img-fluid {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.card {
+  box-shadow: 0.05rem 0.05rem rgb(65, 65, 65);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  &:hover {
+    .img-fluid,
+    .name {
+      transform: scale(1.1);
+    }
+  }
+}
+.button {
+  text-decoration: none;
+  border-radius: 10px;
+  border: #fff 2px solid;
+  text-align: center;
+  &:hover{
+    background-color:white !important;
+    color: black !important;
+    font-weight: bolder;
+  }
+}
+
+.low {
+  &.card {
+    background-color: #d9e66a;
+    & > h5 {
+      background-color: #d9e66a;
+      color: black;
+    }
+    & > a {
+      background-color: #d9e66a;
+      color: black;
+    }
+  }
+}
+.zero {
+  &.card {
+    background-color: #571212;
+    & > h5 {
+      background-color: #571212;
+      color: black;
+    }
+    & > a {
+      background-color: #571212;
+      color: black;
+    }
+  }
+}
+.gd {
+  &.card {
+    background-color: #12501f;
+    & > h5 {
+      background-color: #12501f;
+      color: black;
+    }
+    & > a {
+      background-color: #12501f;
+      color: black;
+    }
+  }
 }

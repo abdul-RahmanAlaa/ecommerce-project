@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent {
+  listFilter:string=""
 
 }
