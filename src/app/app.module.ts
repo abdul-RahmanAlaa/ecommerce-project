@@ -8,6 +8,7 @@ import { ProductsComponent } from './component/products/products.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SideMenuComponent } from './component/products/side-menu/side-menu.component';
 import { ContentSectionComponent } from './component/products/content-section/content-section.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ContentSectionComponent } from './component/products/content-section/co
     SideMenuComponent,
     ContentSectionComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

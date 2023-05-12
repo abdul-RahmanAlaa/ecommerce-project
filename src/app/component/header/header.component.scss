@@ -1,4 +1,156 @@
-.navbar{
-  border: solid whitesmoke 1px;
-  border-radius: 5px;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 1.05px;
 }
+
+.navbar {
+  background-color: #2a2a2a;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0 7px;
+  width: 3.25rem;
+  height: 3.25rem;
+  background-image: url(../../../assets/Epic_Games_logo_w.png);
+  background-size: 74%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav-item {
+  padding: 0 0.875rem;
+  height: 3.25rem;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: default;
+  border-right: 1px solid rgb(204, 204, 204);
+  margin-top: 1rem;
+}
+
+.nav-link {
+  margin-top: 1.1rem;
+  text-transform: uppercase;
+  padding: 0 !important;
+  font-size: 0.7rem;
+  color: rgb(204, 204, 204) !important;
+}
+//right half first nav bar
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.btn1 {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url(../../../assets/Globe_icon-white.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn2 {
+  & > span {
+    padding: 0 1rem;
+    font-size: 0.7rem;
+  }
+  &__img {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+.div3 {
+  background-color: rgb(0, 120, 242);
+  & > .btn3 {
+    color: rgb(255, 255, 255) !important;
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2a2a2a;
+  text-align: center;
+  z-index: 99;
+}
+.d1 {
+  top: 3.25rem;
+  right: -4rem;
+}
+.d2 {
+  top: 3.25rem;
+  right: 1rem;
+}
+
+.dropdown-content a {
+  color: #ccc;
+  margin: 1.4px;
+  width: 11.25rem;
+  height: 1.75rem;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+//////////// end of nav bar 1 /////////////////////////
+
+.nav2 {
+  background-color: rgb(18, 18, 18);
+  position: sticky;
+  top: 0px;
+  z-index: 80;
+
+}
+
+.nav2 *:not(input){
+  font-size: 14px;
+}
+
+.navContainer {
+  height: 6.25rem;
+  margin: 0 11.125rem;
+  align-items: center;
+}
+
+.search {
+  position: relative;
+  &__icon {
+    position: absolute;
+    padding: 0.5rem;
+    width: 1.8rem;
+    top: 5px;
+    left: 5px;
+  }
+}
+
+.search__input {
+  width: 88%;
+  height: 2.5rem;
+  border-radius: 50px;
+  padding-left: 40px;
+  background-color: rgb(32, 32, 32);
+  color: #ccc;
+  font-size: 0.813rem;
+  font-weight: 400;
+  border: 0;
+  &:focus {
+    outline: 0;
+    background-color: rgb(40, 40, 40);
+  }
+}
+

@@ -10,7 +10,7 @@ import { Store } from 'src/app/models/store';
 })
 export class ContentSectionComponent {
   //1
-  Discount: DiscountOffers = DiscountOffers['0%'];
+  Discount: DiscountOffers = DiscountOffers['15%'];
   //2
   adidas: Store = new Store(
     'adidas',
@@ -21,8 +21,8 @@ export class ContentSectionComponent {
   clientName: string = '';
   //4
   product1: IProduct = {
-    productID: 5,
-    productName: 'shoes',
+    id: 5,
+    name: 'shoes',
     quantity: 2,
     price: 2749,
     image:

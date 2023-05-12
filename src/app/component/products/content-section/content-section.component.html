@@ -1,5 +1,11 @@
-<p>{{ Discount }}</p>
-<p>{{ adidas.storeName }}</p>
+<p>the store {{ adidas.storeName }}</p>
+<img class="image" src="{{ adidas.logo }}" />
 <p>{{ clientName }}</p>
-<p>{{ product1.productName }}</p>
-<p>{{ product1.price }}</p>
+<hr />
+<p>
+  the amount you cut off if u buy this product now is
+  <strong> {{ Discount }} </strong>
+</p>
+<p>product type {{ product1.name }}</p>
+<p>product price is {{ product1.price }}</p>
+<img class="image" src="{{ product1.image }}" />
