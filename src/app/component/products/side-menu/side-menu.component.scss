@@ -43,7 +43,24 @@
     }
   }
 }
+
+.accordion-body {
+  padding: 0;
+}
 .asideMenu {
   list-style: none;
   padding: 0;
+  // &.__option {
+  //   margin-bottom: 0.313rem;
+  //   padding: 0.75rem;
+  // }
 }
+
+.asideMenu__option {
+  margin-bottom: 0.313rem;
+  padding: 1rem;
+}
+// .--bs-accordion-btn-icon{
+//   color: #fff !important;
+//   fill: #ccc !important;
+// }
