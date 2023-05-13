@@ -376,6 +376,7 @@ export class ContentSectionComponent implements OnInit {
     //need a little help
   }
 
+
   private _listFilter: string = '';
 
   filterdProducts: IProduct[] = [];

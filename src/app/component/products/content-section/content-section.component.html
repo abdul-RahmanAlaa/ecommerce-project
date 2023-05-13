@@ -25,7 +25,7 @@
       name="options"
       id="option0"
       autocomplete="off"
-      value="[1,2,3,4,5,6,7]"
+      value="0"
       [(ngModel)]="cateogryFilter"
     />
     <label class="btn btn-secondary" for="option0">All</label>
@@ -103,8 +103,8 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-4" *ngFor="let product of categoriesedProducts">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+  <div class="col-6 col-lg-3" *ngFor="let product of categoriesedProducts">
     <div
       class="card"
       [class.low]="product.quantity == 1"
