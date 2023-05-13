@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DiscountOffers } from 'src/app/models/discount-offers';
 import { IProduct } from 'src/app/models/iproduct';
 import { Store } from 'src/app/models/store';
@@ -34,7 +34,7 @@ import { Store } from 'src/app/models/store';
 // }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //day 2
-export class ContentSectionComponent {
+export class ContentSectionComponent implements OnInit {
   clientName: string = 'NoobMaster69';
 
   showLogo: Boolean = true;
@@ -370,10 +370,49 @@ export class ContentSectionComponent {
     this.showLogo = !this.showLogo;
   }
 
+  ngOnInit(): void {
+    this.filterdProducts = this.productsList;
+    this.categoriesedProducts = this.filterdProducts;
+    //need a little help
+  }
+
+  private _listFilter: string = '';
+
+  filterdProducts: IProduct[] = [];
+
+  get listFilter(): string {
+    return this._listFilter;
+  }
+
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filterdProducts = this.theFilter(value);
+  }
+
   theFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.productsList.filter((product: IProduct) =>
       product.name.toLocaleLowerCase().includes(filterBy)
+    );
+  }
+
+  private _cateogryFilter!: number;
+
+  categoriesedProducts: IProduct[] = [];
+
+  get cateogryFilter(): number {
+    return this._cateogryFilter;
+  }
+
+  set cateogryFilter(value: number) {
+    this._cateogryFilter = value;
+    // console.log(this.filterByCateogrys(value));
+    this.categoriesedProducts = this.filterByCateogrys(value);
+  }
+
+  filterByCateogrys(filterBy: number): IProduct[] {
+    return this.productsList.filter(
+      (product: IProduct) => product.cateogryID == filterBy
     );
   }
 }

@@ -12,8 +12,99 @@
 <img class="image" src="{{ product1.image }}" /> -->
 <!-- /////////////////////////////////////////////////////////////// -->
 
+<div class="mb-3">
+  <div class="col-2 p-2">Filter by name :</div>
+  <div class="col-4 p-2">
+    <input type="text" class="form-control" [(ngModel)]="listFilter" />
+  </div>
+  <div class="col-3 p-2">u can filter by cateogrys :</div>
+  <div class="col-9 m-1 p-1">
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option0"
+      autocomplete="off"
+      value="[1,2,3,4,5,6,7]"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option0">All</label>
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option1"
+      autocomplete="off"
+      value="7"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option1">Lifestyle</label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option2"
+      autocomplete="off"
+      value="6"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option2">Running</label>
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option3"
+      autocomplete="off"
+      value="5"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option3">Tennis</label>
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option4"
+      autocomplete="off"
+      value="4"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option4">Football</label>
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option5"
+      autocomplete="off"
+      value="3"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option5">Walking</label>
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option6"
+      autocomplete="off"
+      value="2"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option6">Basketball</label>
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="option7"
+      autocomplete="off"
+      value="1"
+      [(ngModel)]="cateogryFilter"
+    />
+    <label class="btn btn-secondary" for="option7">Slides</label>
+  </div>
+</div>
+
 <div class="row">
-  <div class="col-sm-4" *ngFor="let product of productsList">
+  <div class="col-sm-4" *ngFor="let product of categoriesedProducts">
     <div
       class="card"
       [class.low]="product.quantity == 1"
@@ -27,7 +118,23 @@
         class="img-fluid pointer"
       />
       <h5 class="name pointer">{{ product.name }}</h5>
-      <h5>remaining stock {{ product.quantity }}</h5>
+      <h5>
+        <ng-container [ngSwitch]="product.cateogryID">
+          <ng-container *ngSwitchCase="7">Lifestyle</ng-container>
+          <ng-container *ngSwitchCase="6">Running</ng-container>
+          <ng-container *ngSwitchCase="5">Tennis</ng-container>
+          <ng-container *ngSwitchCase="4">Football</ng-container>
+          <ng-container *ngSwitchCase="3">Walking</ng-container>
+          <ng-container *ngSwitchCase="2">Basketball</ng-container>
+          <ng-container *ngSwitchCase="1">Slides</ng-container>
+        </ng-container>
+      </h5>
+      <h5>
+        <ng-container *ngIf="product.quantity > 1; else zero"
+          >{{ product.quantity }} item in stock</ng-container
+        >
+        <ng-template #zero>item,out of stock </ng-template>
+      </h5>
       <h5 *ngIf="!showLogo">
         Thanks for purchasing from our Store {{ clientName }}
       </h5>
@@ -35,7 +142,13 @@
         We offer an explicit discount of: {{ product.discount }}
       </h5>
       <h5>${{ product.price }}</h5>
-      <a class="button" (click)="toggle()">Add to cart</a>
+      <button
+        class="button"
+        (click)="toggle()"
+        [disabled]="product.quantity == 0"
+      >
+        Add to cart
+      </button>
     </div>
   </div>
 </div>
