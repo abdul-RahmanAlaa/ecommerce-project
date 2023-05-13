@@ -9,6 +9,8 @@ import { FooterComponent } from './component/footer/footer.component';
 import { SideMenuComponent } from './component/products/side-menu/side-menu.component';
 import { ContentSectionComponent } from './component/products/content-section/content-section.component';
 import { FormsModule } from '@angular/forms';
+import { ProductCardDirective } from './Directives/product-card.directive';
+import { CreditPipe } from './Pipes/credit.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     SideMenuComponent,
     ContentSectionComponent,
+    ProductCardDirective,
+    CreditPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

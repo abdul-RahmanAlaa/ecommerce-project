@@ -376,7 +376,6 @@ export class ContentSectionComponent implements OnInit {
     //need a little help
   }
 
-
   private _listFilter: string = '';
 
   filterdProducts: IProduct[] = [];
@@ -416,4 +415,10 @@ export class ContentSectionComponent implements OnInit {
       (product: IProduct) => product.cateogryID == filterBy
     );
   }
+
+  BuyFunc(product: IProduct) {
+    product.quantity--;
+  }
+
+  public theNum: string = "1234567981234567";
 }
