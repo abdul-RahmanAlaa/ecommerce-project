@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DiscountOffers } from 'src/app/models/discount-offers';
 import { IProduct } from 'src/app/models/iproduct';
 import { Store } from 'src/app/models/store';
@@ -372,20 +372,20 @@ export class ContentSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterdProducts = this.productsList;
-    this.categoriesedProducts = this.filterdProducts;
+    this.categoriesedProducts = this.productsList;
     //need a little help
   }
 
-  private _listFilter: string = '';
+  private _childListFilter: string = '';
 
   filterdProducts: IProduct[] = [];
 
-  get listFilter(): string {
-    return this._listFilter;
+  @Input() get childListFilter(): string {
+    return this._childListFilter;
   }
 
-  set listFilter(value: string) {
-    this._listFilter = value;
+  set childListFilter(value: string) {
+    this._childListFilter = value;
     this.filterdProducts = this.theFilter(value);
   }
 
@@ -396,29 +396,32 @@ export class ContentSectionComponent implements OnInit {
     );
   }
 
-  private _cateogryFilter!: number;
+  private _childCateogryFilter!: number;
 
   categoriesedProducts: IProduct[] = [];
 
-  get cateogryFilter(): number {
-    return this._cateogryFilter;
+  @Input() get childCateogryFilter(): number {
+    return this._childCateogryFilter;
   }
 
-  set cateogryFilter(value: number) {
-    this._cateogryFilter = value;
+  set childCateogryFilter(value: number) {
+    this._childCateogryFilter = value;
     // console.log(this.filterByCateogrys(value));
     this.categoriesedProducts = this.filterByCateogrys(value);
   }
 
   filterByCateogrys(filterBy: number): IProduct[] {
-    return this.productsList.filter(
-      (product: IProduct) => product.cateogryID == filterBy
-    );
+    if (filterBy > 0) {
+      return this.productsList.filter(
+        (product: IProduct) => product.cateogryID == filterBy
+      );
+    }
+    return this.productsList;
   }
 
   BuyFunc(product: IProduct) {
     product.quantity--;
   }
 
-  public theNum: string = "1234567981234567";
+  public theNum: string = '1234567981234567';
 }

@@ -11,6 +11,7 @@ import { ContentSectionComponent } from './component/products/content-section/co
 import { FormsModule } from '@angular/forms';
 import { ProductCardDirective } from './Directives/product-card.directive';
 import { CreditPipe } from './Pipes/credit.pipe';
+import { MainComponent } from './component/main/main.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CreditPipe } from './Pipes/credit.pipe';
     ContentSectionComponent,
     ProductCardDirective,
     CreditPipe,
+    MainComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

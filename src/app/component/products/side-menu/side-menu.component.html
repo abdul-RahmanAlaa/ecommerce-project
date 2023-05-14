@@ -1,209 +1,412 @@
-<div class="span">
-  <span> Filters </span>
-</div>
-<div class="search">
-  <img class="search__icon" src="../../../assets/search.svg" />
-  <input class="search__input" type="search" placeholder="Keywords" />
-</div>
-<div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <a
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapse1"
-        aria-expanded="false"
-        aria-controls="flush-collapse1"
+<app-content-section
+  class="col"
+  [childListFilter]="listFilter"
+  [childCateogryFilter]="cateogryFilter"
+></app-content-section>
+
+<div class="col-2">
+  <div class="span">
+    <span> Filters </span>
+  </div>
+  <div class="search">
+    <img class="search__icon" src="../../../assets/search.svg" />
+    <input
+      class="search__input"
+      type="search"
+      placeholder="Keywords"
+      [(ngModel)]="listFilter"
+    />
+  </div>
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse0"
+          aria-expanded="false"
+          aria-controls="flush-collapse0"
+        >
+          Cateogry
+        </a>
+      </h2>
+      <div
+        id="flush-collapse0"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
       >
-        Filters
-      </a>
-    </h2>
-    <div
-      id="flush-collapse1"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionFlushExample"
-    >
-      <div class="accordion-body">
-        <ul class="asideMenu">
-          <li class="asideMenu__option">
-            <a href=""> Slides </a>
-          </li>
-          <li class="asideMenu__option">
-            <a href="">Basketball</a>
-          </li>
-          <li class="asideMenu__option">
-            <a href="">Walking</a>
-          </li>
-          <li class="asideMenu__option">
-            <a href="">Football</a>
-          </li>
-          <li class="asideMenu__option">
-            <a href="">Tennis</a>
-          </li>
-          <li class="asideMenu__option">
-            <a href="">Running</a>
-          </li>
-          <li class="asideMenu__option">
-            <a href="">Lifestyle</a>
-          </li>
-        </ul>
+        <div class="accordion-body">
+          <!-- <ul class="asideMenu">
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option0"
+                autocomplete="off"
+                value="0"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" type="button" for="option0"
+                >All</a
+              >
+            </li>
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option1"
+                autocomplete="off"
+                value="7"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" for="option1">Lifestyle</a>
+            </li>
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option2"
+                autocomplete="off"
+                value="6"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" for="option2">Running</a>
+            </li>
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option3"
+                autocomplete="off"
+                value="5"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" for="option3">Tennis</a>
+            </li>
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option4"
+                autocomplete="off"
+                value="4"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" for="option4">Football</a>
+            </li>
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option5"
+                autocomplete="off"
+                value="3"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" for="option5">Walking</a>
+            </li>
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option6"
+                autocomplete="off"
+                value="2"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" for="option6">Basketball</a>
+            </li>
+            <li class="asideMenu__option">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option7"
+                autocomplete="off"
+                value="1"
+                [(ngModel)]="cateogryFilter"
+              />
+              <a class="buttonA" type="button" for="option7">Slides</a>
+            </li>
+          </ul> -->
+          <div>
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option0"
+                autocomplete="off"
+                value="0"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option0">All</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option1"
+                autocomplete="off"
+                value="7"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option1">Lifestyle</label>
+            </li>
+
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option2"
+                autocomplete="off"
+                value="6"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option2">Running</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option3"
+                autocomplete="off"
+                value="5"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option3">Tennis</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option4"
+                autocomplete="off"
+                value="4"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option4">Football</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option5"
+                autocomplete="off"
+                value="3"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option5">Walking</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option6"
+                autocomplete="off"
+                value="2"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option6">Basketball</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="option7"
+                autocomplete="off"
+                value="1"
+                [(ngModel)]="cateogryFilter"
+              />
+              <label class="btn btn-secondary" for="option7">Slides</label>
+            </li>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <a
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapse1"
-        aria-expanded="false"
-        aria-controls="flush-collapse1"
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse1"
+          aria-expanded="false"
+          aria-controls="flush-collapse1"
+        >
+          Events
+        </a>
+      </h2>
+      <div
+        id="flush-collapse1"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
       >
-        Events
-      </a>
-    </h2>
-    <div
-      id="flush-collapse1"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionFlushExample"
-    >
-      <div class="accordion-body">
-        <ul class="asideMenu">
-          <li class="asideMenu__option">Square Enix Golden Week Sale</li>
-        </ul>
+        <div class="accordion-body">
+          <ul class="asideMenu">
+            <li class="asideMenu__option">Square Enix Golden Week Sale</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <a
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapse2"
-        aria-expanded="false"
-        aria-controls="flush-collapse2"
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse2"
+          aria-expanded="false"
+          aria-controls="flush-collapse2"
+        >
+          Price
+        </a>
+      </h2>
+      <div
+        id="flush-collapse2"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
       >
-        Price
-      </a>
-    </h2>
-    <div
-      id="flush-collapse2"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionFlushExample"
-    >
-      <div class="accordion-body">
-        <ul class="asideMenu">
-          <li class="asideMenu__option">Free</li>
-          <li class="asideMenu__option">Under $5.00</li>
-          <li class="asideMenu__option">Under $10.00</li>
-          <li class="asideMenu__option">Under $20.00</li>
-          <li class="asideMenu__option">Under $30.00</li>
-          <li class="asideMenu__option">$14.99 and above</li>
-          <li class="asideMenu__option">Discounted</li>
-        </ul>
+        <div class="accordion-body">
+          <ul class="asideMenu">
+            <li class="asideMenu__option">
+              <a href=""> Free </a>
+            </li>
+            <li class="asideMenu__option">
+              <a href=""> Under $5.00 </a>
+            </li>
+            <li class="asideMenu__option">
+              <a href="">Under $10.00</a>
+            </li>
+            <li class="asideMenu__option">
+              <a href="">Under $20.00</a>
+            </li>
+            <li class="asideMenu__option">
+              <a href="">Under $30.00</a>
+            </li>
+            <li class="asideMenu__option">
+              <a href="">$14.99 and above</a>
+            </li>
+            <li class="asideMenu__option">
+              <a href="">Discounted</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <a
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapse3"
-        aria-expanded="false"
-        aria-controls="flush-collapse3"
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse3"
+          aria-expanded="false"
+          aria-controls="flush-collapse3"
+        >
+          Events
+        </a>
+      </h2>
+      <div
+        id="flush-collapse3"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
       >
-        Events
-      </a>
-    </h2>
-    <div
-      id="flush-collapse3"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionFlushExample"
-    >
-      <div class="accordion-body">
-        <ul class="asideMenu">
-          <li class="asideMenu__option">Square Enix Golden Week Sale</li>
-        </ul>
+        <div class="accordion-body">
+          <ul class="asideMenu">
+            <li class="asideMenu__option">Square Enix Golden Week Sale</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <a
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapse4"
-        aria-expanded="false"
-        aria-controls="flush-collapse4"
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse4"
+          aria-expanded="false"
+          aria-controls="flush-collapse4"
+        >
+          Events
+        </a>
+      </h2>
+      <div
+        id="flush-collapse4"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
       >
-        Events
-      </a>
-    </h2>
-    <div
-      id="flush-collapse4"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionFlushExample"
-    >
-      <div class="accordion-body">
-        <ul class="asideMenu">
-          <li class="asideMenu__option">Square Enix Golden Week Sale</li>
-        </ul>
+        <div class="accordion-body">
+          <ul class="asideMenu">
+            <li class="asideMenu__option">Square Enix Golden Week Sale</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <a
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapse5"
-        aria-expanded="false"
-        aria-controls="flush-collapse5"
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse5"
+          aria-expanded="false"
+          aria-controls="flush-collapse5"
+        >
+          Events
+        </a>
+      </h2>
+      <div
+        id="flush-collapse5"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
       >
-        Events
-      </a>
-    </h2>
-    <div
-      id="flush-collapse5"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionFlushExample"
-    >
-      <div class="accordion-body">
-        <ul class="asideMenu">
-          <li class="asideMenu__option">Square Enix Golden Week Sale</li>
-        </ul>
+        <div class="accordion-body">
+          <ul class="asideMenu">
+            <li class="asideMenu__option">Square Enix Golden Week Sale</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <a
-        class="accordion-button collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapse6"
-        aria-expanded="false"
-        aria-controls="flush-collapse6"
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse6"
+          aria-expanded="false"
+          aria-controls="flush-collapse6"
+        >
+          Events
+        </a>
+      </h2>
+      <div
+        id="flush-collapse6"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
       >
-        Events
-      </a>
-    </h2>
-    <div
-      id="flush-collapse6"
-      class="accordion-collapse collapse"
-      data-bs-parent="#accordionFlushExample"
-    >
-      <div class="accordion-body">
-        <ul class="asideMenu">
-          <li class="asideMenu__option">Square Enix Golden Week Sale</li>
-        </ul>
+        <div class="accordion-body">
+          <ul class="asideMenu">
+            <li class="asideMenu__option">Square Enix Golden Week Sale</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

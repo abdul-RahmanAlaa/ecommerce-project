@@ -13,9 +13,10 @@
 <!-- /////////////////////////////////////////////////////////////// -->
 
 <div class="mb-3">
+  <!-- day3
   <div class="col-2 p-2">Filter by name :</div>
   <div class="col-4 p-2">
-    <input type="text" class="form-control" [(ngModel)]="listFilter" />
+    <input type="text" class="form-control" [(ngModel)]="childListFilter" />
   </div>
   <div class="col-3 p-2">u can filter by cateogrys :</div>
   <div class="col-9 m-1 p-1">
@@ -26,7 +27,7 @@
       id="option0"
       autocomplete="off"
       value="0"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option0">All</label>
     <input
@@ -36,7 +37,7 @@
       id="option1"
       autocomplete="off"
       value="7"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option1">Lifestyle</label>
 
@@ -47,7 +48,7 @@
       id="option2"
       autocomplete="off"
       value="6"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option2">Running</label>
     <input
@@ -57,7 +58,7 @@
       id="option3"
       autocomplete="off"
       value="5"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option3">Tennis</label>
     <input
@@ -67,7 +68,7 @@
       id="option4"
       autocomplete="off"
       value="4"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option4">Football</label>
     <input
@@ -77,7 +78,7 @@
       id="option5"
       autocomplete="off"
       value="3"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option5">Walking</label>
     <input
@@ -87,7 +88,7 @@
       id="option6"
       autocomplete="off"
       value="2"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option6">Basketball</label>
     <input
@@ -97,70 +98,70 @@
       id="option7"
       autocomplete="off"
       value="1"
-      [(ngModel)]="cateogryFilter"
+      [(ngModel)]="childCateogryFilter"
     />
     <label class="btn btn-secondary" for="option7">Slides</label>
   </div>
 </div>
-<div class="col-4 p-2">
+ <div class="col-4 p-2">
   <h5>{{theNum|credit}}</h5>
-</div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-  <div class="col-6 col-lg-3" *ngFor="let product of categoriesedProducts">
-    <div
-      class="card"
-      [class.low]="product.quantity == 1"
-      [class.zero]="product.quantity == 0"
-      [class.gd]="product.discount == '50%'"
-      cardStyle
-    >
-      <img *ngIf="showLogo" [src]="product.image" class="img-fluid pointer" />
-      <img
-        *ngIf="!showLogo"
-        src="https://via.placeholder.com/210/ccc?text=in cart"
-        class="img-fluid pointer"
+</div>  -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col-6 col-lg-3" *ngFor="let product of categoriesedProducts">
+      <div
+        class="card"
+        [class.low]="product.quantity == 1"
+        [class.zero]="product.quantity == 0"
+        [class.gd]="product.discount == '50%'"
         cardStyle
-      />
-      <h5 class="name pointer">{{ product.name }}</h5>
-      <h5>
-        <ng-container [ngSwitch]="product.cateogryID">
-          <ng-container *ngSwitchCase="7">Lifestyle</ng-container>
-          <ng-container *ngSwitchCase="6">Running</ng-container>
-          <ng-container *ngSwitchCase="5">Tennis</ng-container>
-          <ng-container *ngSwitchCase="4">Football</ng-container>
-          <ng-container *ngSwitchCase="3">Walking</ng-container>
-          <ng-container *ngSwitchCase="2">Basketball</ng-container>
-          <ng-container *ngSwitchCase="1">Slides</ng-container>
-        </ng-container>
-      </h5>
-      <h5>
-        <ng-container *ngIf="product.quantity > 1; else zero"
-          >{{ product.quantity }} item in stock</ng-container
+      >
+        <img *ngIf="showLogo" [src]="product.image" class="img-fluid pointer" />
+        <img
+          *ngIf="!showLogo"
+          src="https://via.placeholder.com/210/ccc?text=in cart"
+          class="img-fluid pointer"
+          cardStyle
+        />
+        <h5 class="name pointer">{{ product.name }}</h5>
+        <h5>
+          <ng-container [ngSwitch]="product.cateogryID">
+            <ng-container *ngSwitchCase="7">Lifestyle</ng-container>
+            <ng-container *ngSwitchCase="6">Running</ng-container>
+            <ng-container *ngSwitchCase="5">Tennis</ng-container>
+            <ng-container *ngSwitchCase="4">Football</ng-container>
+            <ng-container *ngSwitchCase="3">Walking</ng-container>
+            <ng-container *ngSwitchCase="2">Basketball</ng-container>
+            <ng-container *ngSwitchCase="1">Slides</ng-container>
+          </ng-container>
+        </h5>
+        <h5>
+          <ng-container *ngIf="product.quantity > 1; else zero"
+            >{{ product.quantity }} item in stock</ng-container
+          >
+          <ng-template #zero>item,out of stock </ng-template>
+        </h5>
+        <h5 *ngIf="!showLogo">
+          Thanks for purchasing from our Store {{ clientName }}
+        </h5>
+        <h5 *ngIf="product.discount == '50%'">
+          We offer an explicit discount of: {{ product.discount }}
+        </h5>
+        <h5>${{ product.price }}</h5>
+        <button
+          class="button"
+          (click)="toggle()"
+          [disabled]="product.quantity == 0"
         >
-        <ng-template #zero>item,out of stock </ng-template>
-      </h5>
-      <h5 *ngIf="!showLogo">
-        Thanks for purchasing from our Store {{ clientName }}
-      </h5>
-      <h5 *ngIf="product.discount == '50%'">
-        We offer an explicit discount of: {{ product.discount }}
-      </h5>
-      <h5>${{ product.price }}</h5>
-      <button
-        class="button"
-        (click)="toggle()"
-        [disabled]="product.quantity == 0"
-      >
-        Add to cart
-      </button>
-      <button
-        class="button"
-        (click)="BuyFunc(product)"
-        [disabled]="product.quantity == 0"
-      >
-        buy
-      </button>
+          Add to cart
+        </button>
+        <button
+          class="button"
+          (click)="BuyFunc(product)"
+          [disabled]="product.quantity == 0"
+        >
+          buy
+        </button>
+      </div>
     </div>
   </div>
 </div>
-

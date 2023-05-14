@@ -4,12 +4,25 @@
   font-size: 0.875rem;
 }
 
+.col-2 {
+  width: 15.313rem;
+}
+
+.accordion * {
+  border: none;
+}
+
+.accordion svg {
+  fill: #fff;
+  background-color: #fff;
+}
+
 .accordion-button {
   background-color: rgb(18, 18, 18);
   color: #ccc;
   text-decoration: none;
-  // border: 0 !important;
-  border-bottom: 1px solid rgb(32, 32, 32) !important;
+  // border: none ;
+  border-bottom: 1px solid rgb(24, 24, 24) !important;
   padding-bottom: 1rem;
 }
 .span {
@@ -50,17 +63,16 @@
 .asideMenu {
   list-style: none;
   padding: 0;
-  // &.__option {
-  //   margin-bottom: 0.313rem;
-  //   padding: 0.75rem;
-  // }
 }
 
 .asideMenu__option {
   margin-bottom: 0.313rem;
   padding: 1rem;
+  & a {
+    text-decoration: none;
+  }
 }
-// .--bs-accordion-btn-icon{
-//   color: #fff !important;
-//   fill: #ccc !important;
-// }
+
+.buttonA{
+
+}
