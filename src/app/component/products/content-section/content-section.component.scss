@@ -18,14 +18,12 @@
   margin-bottom: 1rem;
 }
 .card {
+  position: relative;
   // box-shadow: 0.05rem 0.05rem rgb(65, 65, 65);
   margin: 0.5rem;
   padding: 0.5rem;
   &:hover {
-    .img-fluid,
-    .name {
-      transform: scale(1.1);
-    }
+    transform: scale(1.05);
   }
 }
 .button {
@@ -33,8 +31,9 @@
   border-radius: 10px;
   border: #fff 2px solid;
   text-align: center;
-  &:hover{
-    background-color:white !important;
+  margin: 0.25rem;
+  &:hover {
+    background-color: white !important;
     color: black !important;
     font-weight: bolder;
   }
@@ -42,40 +41,22 @@
 
 .low {
   &.card {
-    background-color: #d9e66a;
-    & > h5 {
-      background-color: #d9e66a;
-      color: black;
-    }
-    & > a {
-      background-color: #d9e66a;
-      color: black;
-    }
+    border: solid 3px #d9e66a;
   }
 }
 .zero {
   &.card {
-    background-color: #571212;
-    & > h5 {
-      background-color: #571212;
-      color: black;
-    }
-    & > a {
-      background-color: #571212;
-      color: black;
-    }
+    border: solid 3px #571212;
   }
 }
 .gd {
-  &.card {
-    background-color: #12501f;
-    & > h5 {
-      background-color: #12501f;
-      color: black;
-    }
-    & > a {
-      background-color: #12501f;
-      color: black;
-    }
+  .offer {
+    position: absolute;
+    z-index: 50;
+    color: #12501f;
+    border: solid 3px #12501f;
+    background-color: #fff;
+    border-radius: 30%;
+    font-weight: bolder;
   }
 }

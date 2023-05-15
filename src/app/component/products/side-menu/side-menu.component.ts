@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class SideMenuComponent {
   listFilter: string = '';
   cateogryFilter!: number;
+  priceFilter!: number;
 }

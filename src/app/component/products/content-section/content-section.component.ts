@@ -373,6 +373,7 @@ export class ContentSectionComponent implements OnInit {
   ngOnInit(): void {
     this.filterdProducts = this.productsList;
     this.categoriesedProducts = this.productsList;
+    this.listByPrice = this.productsList;
     //need a little help
   }
 
@@ -423,5 +424,25 @@ export class ContentSectionComponent implements OnInit {
     product.quantity--;
   }
 
-  public theNum: string = '1234567981234567';
+  public theNum: string = '1234567890123456';
+
+  // day3
+  private _childPriceFilter!: number;
+  listByPrice: IProduct[] = [];
+  @Input() get childPriceFilter(): number {
+    return this._childPriceFilter;
+  }
+  set childPriceFilter(value: number) {
+    this._childPriceFilter = value;
+    this.listByPrice = this.filterByPrice(value);
+  }
+  filterByPrice(filterBy: number): IProduct[] {
+    console.log(filterBy);
+    if (filterBy > 0) {
+      return this.productsList.filter(
+        (product: IProduct) => product.price <= filterBy
+      );
+    }
+    return this.productsList;
+  }
 }

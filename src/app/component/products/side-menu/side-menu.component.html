@@ -2,6 +2,7 @@
   class="col"
   [childListFilter]="listFilter"
   [childCateogryFilter]="cateogryFilter"
+  [childPriceFilter]="priceFilter"
 ></app-content-section>
 
 <div class="col-2">
@@ -37,230 +38,107 @@
         data-bs-parent="#accordionFlushExample"
       >
         <div class="accordion-body">
-          <!-- <ul class="asideMenu">
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option0"
-                autocomplete="off"
-                value="0"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" type="button" for="option0"
-                >All</a
-              >
-            </li>
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option1"
-                autocomplete="off"
-                value="7"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" for="option1">Lifestyle</a>
-            </li>
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option2"
-                autocomplete="off"
-                value="6"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" for="option2">Running</a>
-            </li>
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option3"
-                autocomplete="off"
-                value="5"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" for="option3">Tennis</a>
-            </li>
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option4"
-                autocomplete="off"
-                value="4"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" for="option4">Football</a>
-            </li>
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option5"
-                autocomplete="off"
-                value="3"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" for="option5">Walking</a>
-            </li>
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option6"
-                autocomplete="off"
-                value="2"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" for="option6">Basketball</a>
-            </li>
-            <li class="asideMenu__option">
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option7"
-                autocomplete="off"
-                value="1"
-                [(ngModel)]="cateogryFilter"
-              />
-              <a class="buttonA" type="button" for="option7">Slides</a>
-            </li>
-          </ul> -->
           <div>
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option0"
-                autocomplete="off"
-                value="0"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option0">All</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option1"
-                autocomplete="off"
-                value="7"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option1">Lifestyle</label>
-            </li>
+            <ul class="asideMenu">
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option0"
+                  autocomplete="off"
+                  value="0"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option0">All</label>
+              </li>
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option1"
+                  autocomplete="off"
+                  value="7"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option1">Lifestyle</label>
+              </li>
 
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option2"
-                autocomplete="off"
-                value="6"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option2">Running</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option3"
-                autocomplete="off"
-                value="5"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option3">Tennis</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option4"
-                autocomplete="off"
-                value="4"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option4">Football</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option5"
-                autocomplete="off"
-                value="3"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option5">Walking</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option6"
-                autocomplete="off"
-                value="2"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option6">Basketball</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                class="btn-check"
-                name="options"
-                id="option7"
-                autocomplete="off"
-                value="1"
-                [(ngModel)]="cateogryFilter"
-              />
-              <label class="btn btn-secondary" for="option7">Slides</label>
-            </li>
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option2"
+                  autocomplete="off"
+                  value="6"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option2">Running</label>
+              </li>
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option3"
+                  autocomplete="off"
+                  value="5"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option3">Tennis</label>
+              </li>
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option4"
+                  autocomplete="off"
+                  value="4"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option4">Football</label>
+              </li>
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option5"
+                  autocomplete="off"
+                  value="3"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option5">Walking</label>
+              </li>
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option6"
+                  autocomplete="off"
+                  value="2"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option6">Basketball</label>
+              </li>
+              <li class="asideMenu__option">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="options"
+                  id="option7"
+                  autocomplete="off"
+                  value="1"
+                  [(ngModel)]="cateogryFilter"
+                />
+                <label for="option7">Slides</label>
+              </li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <a
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#flush-collapse1"
-          aria-expanded="false"
-          aria-controls="flush-collapse1"
-        >
-          Events
-        </a>
-      </h2>
-      <div
-        id="flush-collapse1"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionFlushExample"
-      >
-        <div class="accordion-body">
-          <ul class="asideMenu">
-            <li class="asideMenu__option">Square Enix Golden Week Sale</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -285,26 +163,90 @@
         <div class="accordion-body">
           <ul class="asideMenu">
             <li class="asideMenu__option">
-              <a href=""> Free </a>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="price1"
+                autocomplete="off"
+                value="0"
+                [(ngModel)]="priceFilter"
+              />
+              <label for="price1">All</label>
             </li>
             <li class="asideMenu__option">
-              <a href=""> Under $5.00 </a>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="price2"
+                autocomplete="off"
+                value="50"
+                [(ngModel)]="priceFilter"
+              />
+              <label for="price2">Under $50</label>
             </li>
             <li class="asideMenu__option">
-              <a href="">Under $10.00</a>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="price3"
+                autocomplete="off"
+                value="100"
+                [(ngModel)]="priceFilter"
+              />
+              <label for="price3">Under $100</label>
             </li>
             <li class="asideMenu__option">
-              <a href="">Under $20.00</a>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="price4"
+                autocomplete="off"
+                value="150"
+                [(ngModel)]="priceFilter"
+              />
+              <label for="price4">Under $150</label>
             </li>
             <li class="asideMenu__option">
-              <a href="">Under $30.00</a>
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="price5"
+                autocomplete="off"
+                value="200"
+                [(ngModel)]="priceFilter"
+              />
+              <label for="price5">Under $200</label>
             </li>
-            <li class="asideMenu__option">
-              <a href="">$14.99 and above</a>
-            </li>
-            <li class="asideMenu__option">
-              <a href="">Discounted</a>
-            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <a
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse1"
+          aria-expanded="false"
+          aria-controls="flush-collapse1"
+        >
+          Events
+        </a>
+      </h2>
+      <div
+        id="flush-collapse1"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
+      >
+        <div class="accordion-body">
+          <ul class="asideMenu">
+            <li class="asideMenu__option">Square Enix Golden Week Sale</li>
           </ul>
         </div>
       </div>

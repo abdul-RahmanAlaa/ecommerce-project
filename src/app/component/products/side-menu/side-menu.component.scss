@@ -67,12 +67,11 @@
 
 .asideMenu__option {
   margin-bottom: 0.313rem;
-  padding: 1rem;
+  padding: 0.75rem;
   & a {
     text-decoration: none;
   }
-}
-
-.buttonA{
-
+  & label {
+    cursor: pointer;
+  }
 }
