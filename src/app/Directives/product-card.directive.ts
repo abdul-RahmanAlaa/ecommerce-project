@@ -5,6 +5,10 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class ProductCardDirective {
   constructor(private element: ElementRef) {
+    // this.element.nativeElement.style.boxShadow =
+    //   ' 0.05rem 0.05rem rgb(65, 65, 65)';
+  }
+  ngOnChanges(): void {
     this.element.nativeElement.style.boxShadow =
       ' 0.05rem 0.05rem rgb(65, 65, 65)';
   }

@@ -41,7 +41,7 @@ export class ContentSectionComponent implements OnInit {
   showLogo: Boolean = true;
 
   // productsList: IProduct[];
-  constructor(private protductsService:ProductsService) {
+  constructor(private protductsService: ProductsService) {
     // this.productsList = [
     //   //cateogrys 1=> Slides 2=> Basketball 3=> Walking 4=>Football 5=> Tennis 6=> Running 7=> Lifestyle
     //   {
@@ -382,8 +382,8 @@ export class ContentSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterdProducts = this.protductsService.productsList;
-    this.categoriesedProducts = this.protductsService.productsList;
-    this.listByPrice = this.protductsService.productsList;
+    // this.categoriesedProducts = this.protductsService.productsList;
+    // this.listByPrice = this.protductsService.productsList;
     //need a little help
   }
 
@@ -400,13 +400,6 @@ export class ContentSectionComponent implements OnInit {
     this.filterdProducts = this.protductsService.theFilter(value);
   }
 
-  // theFilter(filterBy: string): IProduct[] {
-  //   filterBy = filterBy.toLocaleLowerCase();
-  //   return this.productsList.filter((product: IProduct) =>
-  //     product.name.toLocaleLowerCase().includes(filterBy)
-  //   );
-  // }
-
   private _childCateogryFilter!: number;
 
   categoriesedProducts: IProduct[] = [];
@@ -417,18 +410,12 @@ export class ContentSectionComponent implements OnInit {
 
   set childCateogryFilter(value: number) {
     this._childCateogryFilter = value;
-    // console.log(this.filterByCateogrys(value));
-    this.categoriesedProducts = this.protductsService.filterByCateogrys(value);
+    if (value == 0) {
+      this.filterdProducts = this.protductsService.productsList;
+    } else {
+      this.filterdProducts = this.protductsService.filterByCateogrys(value);
+    }
   }
-
-  // filterByCateogrys(filterBy: number): IProduct[] {
-  //   if (filterBy > 0) {
-  //     return this.productsList.filter(
-  //       (product: IProduct) => product.cateogryID == filterBy
-  //     );
-  //   }
-  //   return this.productsList;
-  // }
 
   BuyFunc(product: IProduct) {
     product.quantity--;
@@ -444,7 +431,11 @@ export class ContentSectionComponent implements OnInit {
   }
   set childPriceFilter(value: number) {
     this._childPriceFilter = value;
-    this.listByPrice = this.protductsService.filterByPrice(value);
+    if (value > 0) {
+      this.filterdProducts = this.protductsService.filterByPrice(value);
+    } else {
+      this.filterdProducts = this.protductsService.productsList;
+    }
   }
   // filterByPrice(filterBy: number): IProduct[] {
   //   console.log(filterBy);

@@ -355,22 +355,14 @@ export class ProductsService {
   }
 
   filterByCateogrys(filterBy: number): IProduct[] {
-    if (filterBy > 0) {
-      return this.productsList.filter(
-        (product: IProduct) => product.cateogryID == filterBy
-      );
-    }
-    return this.productsList;
+    return this.productsList.filter(
+      (product: IProduct) => product.cateogryID == filterBy
+    );
   }
 
   filterByPrice(filterBy: number): IProduct[] {
-    console.log(filterBy);
-    if (filterBy > 0) {
-      return this.productsList.filter(
-        (product: IProduct) => product.price <= filterBy
-      );
-    }
-    return this.productsList;
+    return this.productsList.filter(
+      (product: IProduct) => product.price <= filterBy
+    );
   }
-
 }
