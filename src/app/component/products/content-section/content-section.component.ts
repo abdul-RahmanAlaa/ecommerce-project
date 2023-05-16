@@ -363,6 +363,15 @@ export class ContentSectionComponent implements OnInit {
           'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/18a3ad53-57ec-421c-81ae-61d59106c9d3/offcourt-oklahoma-state-slide-Hst70j.png',
         cateogryID: 1,
       },
+      {
+        id: 36,
+        name: "Nike Air Force 1 '07",
+        quantity: 10,
+        price: 110,
+        image:
+          'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d762c5e2-ae49-4208-99df-484594b51e5f/air-force-1-07-mens-shoes-jBrhbr.png',
+        cateogryID: 1,
+      },
     ];
   }
 
@@ -446,72 +455,36 @@ export class ContentSectionComponent implements OnInit {
     return this.productsList;
   }
 
-  // @Output() newCartProductEvent: EventEmitter<IProduct[]> = new EventEmitter<IProduct[]>();
-  // @Output() newCartQuantityEvent: EventEmitter<any[]> = new EventEmitter<any[]>();
-
-  // cartProduct: IProduct[] = [];
-  // cartQuantity: any[] = [
-  //   {
-  //     id: 0,
-  //     quantity: 0,
-  //   },
-  // ];
-
-  // addToCart(product: IProduct) {
-  //   if (this.cartProduct.includes(product)) {
-  //     this.cartQuantity.forEach((element) => {
-  //       if (element.id == product.id) {
-  //         element.quantity++;
-  //       }
-  //     });
-  //   } else {
-  //     this.cartProduct.push(product);
-  //     let object = {
-  //       id: product.id,
-  //       quantity: 1,
-  //     };
-  //     this.cartQuantity.push(object);
-  //   }
-  //   // console.log(this.cartProduct);
-  //   // console.log(this.cartQuantity);
-
-  //   this.newCartProductEvent.emit(this.cartProduct);
-  //   this.newCartQuantityEvent.emit(this.cartQuantity);
-  // }
-
+  @Output() newCartProductEvent: EventEmitter<IProduct[]> = new EventEmitter<
+    IProduct[]
+  >();
   cartProduct: IProduct[] = [];
-  addToCart(product: any): void {
-    this.cartProduct = product;
-  }
-
-  cartQuantity: any[] = [];
-  addQuantity(quantity: any): void {
-    this.cartQuantity = quantity;
-  }
-
-  getQuantity(product: IProduct): number {
-    let value = 0;
-    this.cartQuantity.forEach((element) => {
-      if (element.id === product.id) {
-        value = element.quantity;
-      }
-    });
-    return value;
-  }
-
-  removeProduct(product: IProduct): void {
-    let index = this.cartProduct.indexOf(product);
-    console.log(this.cartProduct.indexOf(product));
-    if (index != -1) {
+  cartQuantity: any[] = [
+    {
+      id: 0,
+      quantity: 0,
+    },
+  ];
+  @Output() newCartQuantityEvent: EventEmitter<any[]> = new EventEmitter<
+    any[]
+  >();
+  addToCart(product: IProduct) {
+    if (this.cartProduct.includes(product)) {
       this.cartQuantity.forEach((element) => {
         if (element.id == product.id) {
-          if (element.quantity > 1) {
-            element.quantity = element.quantity - 1;
-          } else {
-            this.cartProduct.splice(index, 1);
-          }
+          element.quantity++;
         }
       });
+    } else {
+      this.cartProduct.push(product);
+      let obj = {
+        id: product.id,
+        quantity: 1,
+      };
+      this.cartQuantity.push(obj);
     }
+
+    this.newCartProductEvent.emit(this.cartProduct);
+    this.newCartQuantityEvent.emit(this.cartQuantity);
   }
 }

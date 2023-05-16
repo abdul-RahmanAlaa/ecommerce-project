@@ -154,7 +154,7 @@
         <h5>${{ product.price }}</h5>
         <button
           class="button"
-          (click)="addQuantity(product)"
+          (click)="addToCart(product)"
           [disabled]="product.quantity == 0"
         >
           Add to cart
@@ -169,42 +169,5 @@
       </div>
     </div>
   </div>
-  <hr />
-  <div class="d-flex justify-content-center" *ngIf="cartProduct.length > 0">
-    <h3 class="p-1 m-1">THE CART</h3>
-  </div>
-  <div class="card p-1 m-2">
-    <div class="row">
-      <h5 class="col">Total :</h5>
-      <h5 class="col"></h5>
-    </div>
-  </div>
-  <hr />
-  <div class="card bg-secondary">
-    <div class="card p-3 m-2">
-      <table>
-        <tr class="">
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total Price</th>
-          <th>Delete</th>
-        </tr>
-        <hr />
-        <ng-container *ngFor="let cart of cartProduct">
-          <tr>
-            <td>{{ cart.name }}</td>
-            <td>{{ cart.price }}</td>
-            <td>{{ getQuantity(cart) }}</td>
-            <td>{{ getQuantity(cart) * cart.price }}</td>
-            <td>
-              <button class="btn" (click)="removeProduct(cart)">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </ng-container>
-      </table>
-    </div>
-  </div>
 </div>
+

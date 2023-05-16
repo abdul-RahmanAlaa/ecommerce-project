@@ -3,6 +3,8 @@
   [childListFilter]="listFilter"
   [childCateogryFilter]="cateogryFilter"
   [childPriceFilter]="priceFilter"
+  (newCartProductEvent)="addToCart($event)"
+  (newCartQuantityEvent)="addQuantity($event)"
 ></app-content-section>
 
 <div class="col-2">
@@ -352,38 +354,38 @@
       </div>
     </div> -->
   </div>
-  <!-- <hr />
-  <div class="bg-secondary">
-    <div class="d-flex justify-content-center">
-      <h3 class="p-1 m-1">THE CART</h3>
+</div>
+<div class="row">
+  <div class="card p-1 m-2 bg-secondary" *ngIf="cartProduct.length > 0">
+    <div class="card p-2">
+      <h5 class="">THE CART</h5>
+      <table>
+        <thead>
+          <tr class="p-1 m-1">
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let cart of cartProduct">
+            <tr>
+              <td>{{ cart.name }}</td>
+              <td>{{ cart.price }}</td>
+              <td>{{ getQuantity(cart) }}</td>
+              <td>{{ getQuantity(cart) * cart.price }}</td>
+              <td>
+                <button class="btn" (click)="removeProduct(cart)">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
     </div>
-    <div class="card p-1 m-1">
-      <div class="row">
-        <h5 class="col p-1 m-1">Total :</h5>
-        <h5 class="col"></h5>
-      </div>
-    </div>
-    <hr />
-    <div class="card bg-secondary">
-      <div class="card p-3">
-        <div class="row">
-          <h5 class="col">Name :</h5>
-          <h5 class="col"></h5>
-        </div>
-        <div class="row">
-          <h5 class="col">Price :</h5>
-          <h5 class="col"></h5>
-        </div>
-        <div class="row">
-          <h5 class="col">Quantity :</h5>
-          <h5 class="col"></h5>
-        </div>
-        <div class="row">
-          <h5 class="col">Total :</h5>
-          <h5 class="col"></h5>
-        </div>
-        <div class="btn bg-danger">Delete</div>
-      </div>
-    </div>
-  </div> -->
+  </div>
+
 </div>
