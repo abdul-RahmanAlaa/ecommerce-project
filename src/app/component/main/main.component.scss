@@ -1,0 +1,25 @@
+.hero {
+  max-width: 100%;
+  padding: 0 5%;
+  &__list {
+    list-style: none;
+    &--element {
+      padding: 1rem;
+      border-radius: 10px;
+      &:hover{
+        background-color: rgb(32, 32, 32);
+      }
+    }
+    &--link {
+      text-decoration: none;
+    }
+    &--image {
+      border-radius: 5px;
+    }
+    &--text {
+      padding-top: 0.4375em;
+      justify-self: center;
+      color: #fff;
+    }
+  }
+}
