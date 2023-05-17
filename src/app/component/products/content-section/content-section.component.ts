@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
 import { DiscountOffers } from 'src/app/models/discount-offers';
 import { IProduct } from 'src/app/models/iproduct';
@@ -41,7 +42,7 @@ export class ContentSectionComponent implements OnInit {
   showLogo: Boolean = true;
 
   // productsList: IProduct[];
-  constructor(private protductsService: ProductsService) {
+  constructor(private protductsService: ProductsService, private router:Router) {
     // this.productsList = [
     //   //cateogrys 1=> Slides 2=> Basketball 3=> Walking 4=>Football 5=> Tennis 6=> Running 7=> Lifestyle
     //   {
@@ -382,9 +383,6 @@ export class ContentSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterdProducts = this.protductsService.productsList;
-    // this.categoriesedProducts = this.protductsService.productsList;
-    // this.listByPrice = this.protductsService.productsList;
-    //need a little help
   }
 
   private _childListFilter: string = '';
@@ -479,4 +477,9 @@ export class ContentSectionComponent implements OnInit {
     this.newCartProductEvent.emit(this.cartProduct);
     this.newCartQuantityEvent.emit(this.cartQuantity);
   }
+
+  protectedDetails(productID:number){
+    this.router.navigate(['/product',productID])
+  }
+
 }

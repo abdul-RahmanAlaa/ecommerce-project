@@ -1,0 +1,75 @@
+<div class="container p-2 m-2" *ngIf="product">
+  <div class="row">
+    <div class="col row">
+      <div class="col-2"></div>
+      <div class="col">
+        <h5 class="name">{{ product.name }}</h5>
+        <h5 class="cateogry">
+          <ng-container [ngSwitch]="product.cateogryID">
+            <ng-container *ngSwitchCase="7">Lifestyle</ng-container>
+            <ng-container *ngSwitchCase="6">Running</ng-container>
+            <ng-container *ngSwitchCase="5">Tennis</ng-container>
+            <ng-container *ngSwitchCase="4">Football</ng-container>
+            <ng-container *ngSwitchCase="3">Walking</ng-container>
+            <ng-container *ngSwitchCase="2">Basketball</ng-container>
+            <ng-container *ngSwitchCase="1">Slides</ng-container>
+          </ng-container>
+        </h5>
+        <img
+          [src]="product.backgroundImage"
+          [alt]="product.name"
+          class="image"
+        />
+        <div class="row slider">
+          <div class="col">
+            <a
+              ><img class="img" [src]="product.image" [alt]="product.name"
+            /></a>
+          </div>
+          <div class="col">
+            <a
+              ><img class="img" [src]="product.image" [alt]="product.name"
+            /></a>
+          </div>
+          <div class="col">
+            <a
+              ><img class="img" [src]="product.image" [alt]="product.name"
+            /></a>
+          </div>
+          <div class="col">
+            <a
+              ><img class="img" [src]="product.image" [alt]="product.name"
+            /></a>
+          </div>
+          <div class="col">
+            <a
+              ><img class="img" [src]="product.image" [alt]="product.name"
+            /></a>
+          </div>
+          <div class="col">
+            <a
+              ><img class="img" [src]="product.image" [alt]="product.name"
+            /></a>
+          </div>
+          <div class="col">
+            <a
+              ><img class="img" [src]="product.image" [alt]="product.name"
+            /></a>
+          </div>
+        </div>
+        <h5 class="lorem">{{ product.Details }}</h5>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="space"></div>
+      <img class="img" [src]="product.titelImage" [alt]="product.name" />
+      <h5 class="name">${{ product.price }}</h5>
+      <div class="row btn">
+        <button class="btn btn-danger col">BUY NOW</button>
+      </div>
+      <div class="row btn">
+        <button class="btn btn-dark col">ADD TO CART</button>
+      </div>
+    </div>
+  </div>
+</div>

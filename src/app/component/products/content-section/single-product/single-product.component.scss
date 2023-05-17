@@ -1,0 +1,42 @@
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+.name {
+  font-size: larger;
+  font-weight: bolder;
+  margin: 2rem 0;
+}
+
+.cateogry {
+  font-size: large;
+  font-weight: bold;
+  margin: 2rem 0;
+}
+
+.image {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.slider {
+  margin: 1.5rem 0;
+}
+
+.img {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.lorem {
+  font-family: system-ui;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.space{
+  margin: 9rem;
+}

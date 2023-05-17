@@ -6,6 +6,9 @@
 
 .name {
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:hover {
     color: aqua;
   }
@@ -42,6 +45,9 @@
 .low {
   &.card {
     border: solid 3px #d9e66a;
+    &button {
+      background-color: #d9e66a;
+    }
   }
 }
 .zero {

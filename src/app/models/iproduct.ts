@@ -1,4 +1,4 @@
-import { DiscountOffers } from "./discount-offers";
+import { DiscountOffers } from './discount-offers';
 
 export interface IProduct {
   id: number;
@@ -6,6 +6,9 @@ export interface IProduct {
   quantity: number;
   price: number;
   image: string;
+  backgroundImage: string;
+  titelImage: string;
   cateogryID: number;
-  discount?:DiscountOffers
+  Details: string;
+  discount?: DiscountOffers;
 }

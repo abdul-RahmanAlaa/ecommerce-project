@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { ProductCardDirective } from './Directives/product-card.directive';
 import { CreditPipe } from './Pipes/credit.pipe';
 import { MainComponent } from './component/main/main.component';
+import { HomeComponent } from './component/home/home.component';
+import { WildcardComponent } from './component/wildcard/wildcard.component';
+import { RoutesGroupComponent } from './component/routes-group/routes-group.component';
+import { SingleProductComponent } from './component/products/content-section/single-product/single-product.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import { MainComponent } from './component/main/main.component';
     ProductCardDirective,
     CreditPipe,
     MainComponent,
+    HomeComponent,
+    WildcardComponent,
+    RoutesGroupComponent,
+    SingleProductComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
