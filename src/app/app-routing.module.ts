@@ -10,8 +10,15 @@ const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent, title: 'Home' },
   { path: 'Browse', component: MainComponent, title: 'Browse' },
-  { path: 'product/:productID', component: SingleProductComponent, title:'Product Details'},
-
+  {
+    path: 'product/:productID',
+    component: SingleProductComponent,
+    title: 'Product Details',
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('src/app/component/user/user.module').then((m) => m.UserModule),
+  },
 
   { path: '**', component: WildcardComponent, title: 'Error 404' },
 ];
