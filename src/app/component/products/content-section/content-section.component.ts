@@ -435,15 +435,7 @@ export class ContentSectionComponent implements OnInit {
       this.filterdProducts = this.protductsService.productsList;
     }
   }
-  // filterByPrice(filterBy: number): IProduct[] {
-  //   console.log(filterBy);
-  //   if (filterBy > 0) {
-  //     return this.productsList.filter(
-  //       (product: IProduct) => product.price <= filterBy
-  //     );
-  //   }
-  //   return this.productsList;
-  // }
+
 
   @Output() newCartProductEvent: EventEmitter<IProduct[]> = new EventEmitter<
     IProduct[]

@@ -114,7 +114,6 @@
         [class.zero]="product.quantity == 0"
         [class.gd]="product.discount == '50%'"
         cardStyle
-        (click)="protectedDetails(product.id)"
       >
         <img *ngIf="showLogo" [src]="product.image" class="img-fluid pointer" />
         <img
@@ -151,6 +150,9 @@
           {{ product.discount }}
         </h5>
         <h5>${{ product.price }}</h5>
+        <button class="button" (click)="protectedDetails(product.id)">
+          details
+        </button>
         <button
           class="button"
           (click)="addToCart(product)"

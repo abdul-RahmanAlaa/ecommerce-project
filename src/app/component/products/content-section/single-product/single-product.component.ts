@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
 import { IProduct } from 'src/app/models/iproduct';
 
@@ -13,17 +13,47 @@ export class SingleProductComponent implements OnInit {
   product: IProduct | undefined;
   //what is the difference ?
   // product: IProduct | undefined = undefined;
+  productIDsArray: number[] = [];
+  currentIndex!: number;
 
   constructor(
     private productsService: ProductsService,
-    private activatedRoutes: ActivatedRoute
+    private activatedRoutes: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit(): void {
-    this.productID = this.activatedRoutes.snapshot.paramMap.get('productID')
-      ? Number(this.activatedRoutes.snapshot.paramMap.get('productID'))
-      : 0;
+    this.productIDsArray = this.productsService.getIDsOfProducts();
 
-    this.product = this.productsService.getProductByID(this.productID);
-    console.log(this.product);
+    this.activatedRoutes.paramMap.subscribe((params) => {
+      this.productID = params.get('productID')
+        ? Number(this.activatedRoutes.snapshot.paramMap.get('productID'))
+        : 0;
+      let result = this.productsService.getProductByID(this.productID);
+      if (result) {
+        this.product = result;
+      } else {
+        alert('what r u doing here, go back!');
+      }
+    });
+  }
+
+  allProducts() {
+    this.router.navigate(['Browse']);
+  }
+
+  previous() {
+    this.currentIndex = this.productIDsArray.indexOf(this.productID);
+    this.router.navigate([
+      'product',
+      this.productIDsArray[--this.currentIndex],
+    ]);
+  }
+
+  next() {
+    this.currentIndex = this.productIDsArray.indexOf(this.productID);
+    this.router.navigate([
+      'product',
+      this.productIDsArray[++this.currentIndex],
+    ]);
   }
 }

@@ -589,4 +589,8 @@ export class ProductsService {
   getProductByID(productID: number): IProduct | undefined {
     return this.productsList.find((product) => product.id == productID);
   }
+
+  getIDsOfProducts():number[]{
+    return this.productsList.map(product=> product.id)
+  }
 }
