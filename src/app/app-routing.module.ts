@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: () => import('src/app/component/user/user.module').then((m) => m.UserModule),
+    loadChildren: () =>
+      import('src/app/component/user/user.module').then((m) => m.UserModule),
   },
 
   { path: '**', component: WildcardComponent, title: 'Error 404' },

@@ -16,6 +16,7 @@ import { HomeComponent } from './component/home/home.component';
 import { WildcardComponent } from './component/wildcard/wildcard.component';
 import { RoutesGroupComponent } from './component/routes-group/routes-group.component';
 import { SingleProductComponent } from './component/products/content-section/single-product/single-product.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { SingleProductComponent } from './component/products/content-section/sin
     RoutesGroupComponent,
     SingleProductComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

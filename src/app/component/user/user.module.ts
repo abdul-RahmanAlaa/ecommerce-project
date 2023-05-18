@@ -12,10 +12,10 @@ const routes: Routes = [
     component: EditProfileComponent,
     title: 'Edit Profile',
   },
-  { path: 'login', component: EditProfileComponent, title: 'Login' },
+  { path: 'login', component: LoginComponent, title: 'Login' },
   {
     path: 'view-profile',
-    component: EditProfileComponent,
+    component: ViewProfileComponent,
     title: 'View Profile',
   },
 ];

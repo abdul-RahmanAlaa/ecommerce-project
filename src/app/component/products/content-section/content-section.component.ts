@@ -1,5 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { ProductsWithApiService } from 'src/app/Services/products-with-api.service';
 import { ProductsService } from 'src/app/Services/products.service';
 import { DiscountOffers } from 'src/app/models/discount-offers';
 import { IProduct } from 'src/app/models/iproduct';
@@ -36,13 +45,17 @@ import { Store } from 'src/app/models/store';
 // }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //day 2
-export class ContentSectionComponent implements OnInit {
+export class ContentSectionComponent implements OnInit, OnDestroy {
   clientName: string = 'NoobMaster69';
 
   showLogo: Boolean = true;
 
   // productsList: IProduct[];
-  constructor(private protductsService: ProductsService, private router:Router) {
+  constructor(
+    private protductsService: ProductsService,
+    private router: Router,
+    private productApiService: ProductsWithApiService
+  ) {
     // this.productsList = [
     //   //cateogrys 1=> Slides 2=> Basketball 3=> Walking 4=>Football 5=> Tennis 6=> Running 7=> Lifestyle
     //   {
@@ -383,6 +396,22 @@ export class ContentSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterdProducts = this.protductsService.productsList;
+
+    this.sup = this.productApiService.getAllProducts().subscribe({
+      next: (data) => {
+        this.filterdProducts = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
+  sup!: Subscription;
+
+  ngOnDestroy(): void {
+    this.sup.unsubscribe();
+    console.log('y r now out of products tap.');
   }
 
   private _childListFilter: string = '';
@@ -436,7 +465,6 @@ export class ContentSectionComponent implements OnInit {
     }
   }
 
-
   @Output() newCartProductEvent: EventEmitter<IProduct[]> = new EventEmitter<
     IProduct[]
   >();
@@ -470,8 +498,7 @@ export class ContentSectionComponent implements OnInit {
     this.newCartQuantityEvent.emit(this.cartQuantity);
   }
 
-  protectedDetails(productID:number){
-    this.router.navigate(['/product',productID])
+  protectedDetails(productID: number) {
+    this.router.navigate(['/product', productID]);
   }
-
 }
