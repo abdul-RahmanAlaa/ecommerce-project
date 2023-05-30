@@ -34,12 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     RoutesGroupComponent,
     SingleProductComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

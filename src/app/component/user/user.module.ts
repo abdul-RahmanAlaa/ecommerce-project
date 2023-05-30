@@ -4,6 +4,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'view-profile', pathMatch: 'full' },
@@ -21,7 +22,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ViewProfileComponent, EditProfileComponent, LoginComponent],
+  declarations: [
+    ViewProfileComponent,
+    EditProfileComponent,
+    LoginComponent,
+    SignupComponent,
+  ],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class UserModule {}

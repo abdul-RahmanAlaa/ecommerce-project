@@ -15,10 +15,11 @@ const routes: Routes = [
     component: SingleProductComponent,
     title: 'Product Details',
   },
+
   {
-    path: 'user',
+    path: 'admin',
     loadChildren: () =>
-      import('src/app/component/user/user.module').then((m) => m.UserModule),
+      import('src/app/component/admin/admin.module').then((m) => m.AdminModule),
   },
 
   { path: '**', component: WildcardComponent, title: 'Error 404' },

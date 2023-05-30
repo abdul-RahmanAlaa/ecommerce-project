@@ -395,6 +395,61 @@
       "backgroundImage": "https://dummyimage.com/700x300/cccccc/000&text=this+is+a+placeholder",
       "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d762c5e2-ae49-4208-99df-484594b51e5f/air-force-1-07-mens-shoes-jBrhbr.png",
       "cateogryID": 1
+    },
+    {
+      "name": "product 1",
+      "image": "product 1",
+      "Details": "product 1",
+      "quantity": 2,
+      "price": 2,
+      "cateogryID": 1,
+      "id": 42
+    },
+    {
+      "name": "product 1",
+      "image": "product 1",
+      "Details": "product 1",
+      "quantity": 13456,
+      "price": 53,
+      "cateogryID": 4,
+      "id": 43
+    }
+  ],
+  "categories": [
+    {
+      "cateogryID": 1,
+      "categoryName": "Footwear"
+    },
+    {
+      "cateogryID": 2,
+      "categoryName": "Apparel"
+    },
+    {
+      "cateogryID": 3,
+      "categoryName": "Accessories"
+    },
+    {
+      "cateogryID": 4,
+      "categoryName": "Equipment"
+    },
+    {
+      "cateogryID": 5,
+      "categoryName": "Digital"
+    },
+    {
+      "cateogryID": 6,
+      "categoryName": "Jordan"
+    },
+    {
+      "cateogryID": 7,
+      "categoryName": "Converse"
+    }
+  ],
+  "user": [
+    {
+      "name": "abdo",
+      "email": "abdoalaaabdo17@gmail.com",
+      "password": "abdoalaa"
     }
   ]
 }
